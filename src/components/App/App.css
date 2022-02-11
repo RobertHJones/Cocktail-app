@@ -1,0 +1,18 @@
+* {background-color: rgb(182, 207, 135)}
+
+
+.App {
+  text-align: center;
+  width: 100%;
+}
+
+.drink-display{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+
+
+
+
