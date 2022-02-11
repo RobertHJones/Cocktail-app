@@ -7,6 +7,7 @@ import Header from "../Header";
 function App() {
   // set the state
   const [drink, setDrink] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   // write an async function to get data from cocktails
   async function fetchData(drink) {
@@ -38,6 +39,11 @@ function App() {
         {drink.map((item, index) => {
           return (
             <DrinkList
+              onClick={(evt) => {
+                setRefresh(true);
+                console.log("refresh", evt);
+              }}
+              refresh={refresh}
               name={item.strDrink}
               image={item.strDrinkThumb}
               id={item.idDrink}

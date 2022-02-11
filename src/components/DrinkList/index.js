@@ -4,22 +4,25 @@ import "./index.css";
 
 // import Input from "../Input";
 
-function DrinkList({ name, image, id }) {
+function DrinkList({ name, image, id, onClick, refresh }) {
   const [selectedDrinkProperties, setSelectedDrinkProperties] = useState("");
+
   async function handleClick(e) {
-    // console.log(e.target.id);
-    // setDrinkId(e.target.id);
+    console.log(e.target.id);
+    onClick(e.target.id);
     let newId = e.target.id;
     const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${newId}`
     );
     const data = await response.json();
     setSelectedDrinkProperties(data.drinks[0]);
-    console.log(data.drinks[0]);
+    // console.log(data.drinks[0]);
   }
   useEffect(() => {
     setSelectedDrinkProperties("");
-  }, [name, id]);
+    console.log("id has changed");
+  }, [id]);
+  // console.log(id == id);
 
   return (
     <div>
