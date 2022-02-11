@@ -4,11 +4,11 @@ import "./index.css";
 
 // import Input from "../Input";
 
-function DrinkList({ name, image, id, onClick, refresh }) {
+function DrinkList({ name, image, id, onClick }) {
   const [selectedDrinkProperties, setSelectedDrinkProperties] = useState("");
 
   async function handleClick(e) {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     onClick(e.target.id);
     let newId = e.target.id;
     const response = await fetch(
@@ -25,7 +25,7 @@ function DrinkList({ name, image, id, onClick, refresh }) {
   // console.log(id == id);
 
   return (
-    <div>
+    <div tabindex="0" onBlur={(evt) => setSelectedDrinkProperties("")}>
       <ul>
         <li id="drink">
           {name}
