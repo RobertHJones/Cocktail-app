@@ -2,6 +2,8 @@
 
 This app generates a list of cocktails based on searched ingredients and then provides the user with the recipe upon clicking on the image.
 
+It's deployed at https://cocktail-generator.netlify.app/
+
 ## Screenshots
 
 <img src="./Screenshot.png" alt="example"/>

@@ -11,7 +11,7 @@ function Input({ onSubmit }) {
     console.log(drink);
   }
 
-  // function to prevent the page from automatically refreshing and to search the API
+  // function to prevent the page from automatically refreshing and search the API
   function SearchApI(e) {
     e.preventDefault();
 

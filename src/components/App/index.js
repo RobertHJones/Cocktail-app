@@ -20,16 +20,10 @@ function App() {
     console.log(fetchedArray);
   }
 
-  // console.log("hh",inst[0][0])
-  // idDrink;
-
-  //https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${}
-
   // useEffect to run the function every time a new search is made
   useEffect(() => {
     fetchData();
-  });
-  // use state in useEffect so that page only refreshes when an input is taken
+  }, [drink]);
 
   return (
     <div className="App">

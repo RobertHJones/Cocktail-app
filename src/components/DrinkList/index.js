@@ -2,27 +2,22 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./index.css";
 
-// import Input from "../Input";
-
 function DrinkList({ name, image, id, onClick }) {
   const [selectedDrinkProperties, setSelectedDrinkProperties] = useState("");
 
   async function handleClick(e) {
-    // console.log(e.target.id);
-    onClick(e.target.id);
+    // take the id from the drink image and use it to search the api for the ingredients
     let newId = e.target.id;
     const response = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${newId}`
     );
     const data = await response.json();
     setSelectedDrinkProperties(data.drinks[0]);
-    // console.log(data.drinks[0]);
   }
   useEffect(() => {
     setSelectedDrinkProperties("");
     console.log("id has changed");
   }, [id]);
-  // console.log(id == id);
 
   return (
     <div tabindex="0" onBlur={(evt) => setSelectedDrinkProperties("")}>
@@ -67,16 +62,6 @@ function DrinkList({ name, image, id, onClick }) {
             {selectedDrinkProperties.strInstructions}
           </div>
         </li>
-      </ul>
-    </div>
-  );
-}
-
-export function DrinkInst({ alcohol }) {
-  return (
-    <div>
-      <ul>
-        <li>{alcohol}</li>
       </ul>
     </div>
   );
